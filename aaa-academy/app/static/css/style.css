@@ -1,0 +1,813 @@
+:root {
+    --bg: #f6f7fb;
+    --surface: #fff;
+    --text: #101828;
+    --muted: #667085;
+    --line: #e6e8ef;
+    --primary: #6d3df5;
+    --primary2: #4f46e5;
+    --sidebar: #111827;
+    --success: #12b76a;
+    --danger: #f04438;
+    --warning: #f79009;
+    --shadow: 0 12px 35px rgba(16, 24, 40, .07)
+}
+
+* {
+    box-sizing: border-box
+}
+
+html {
+    scroll-behavior: smooth
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    background: radial-gradient(circle at 90% 0%, rgba(109, 61, 245, .06), transparent 28rem), var(--bg);
+    color: var(--text);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased
+}
+
+a {
+    color: inherit
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit
+}
+
+button {
+    cursor: pointer
+}
+
+.app {
+    display: flex;
+    min-height: 100vh
+}
+
+.side {
+    width: 250px;
+    background: linear-gradient(180deg, #111827, #0c1320);
+    color: #fff;
+    padding: 22px 14px;
+    position: fixed;
+    inset: 0 auto 0 0;
+    z-index: 20;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid rgba(255, 255, 255, .05)
+}
+
+.brand {
+    display: flex;
+    gap: 11px;
+    align-items: center;
+    margin: 0 8px 38px
+}
+
+.brand b {
+    font-size: 15px
+}
+
+.brand small {
+    display: block;
+    color: #98a2b3;
+    margin-top: 2px;
+    font-size: 11px;
+    letter-spacing: .7px
+}
+
+.logo {
+    width: 42px;
+    height: 42px;
+    flex: none;
+    border-radius: 13px;
+    background: linear-gradient(135deg, #7c3aed, #2563eb);
+    display: grid;
+    place-items: center;
+    color: #fff;
+    font-weight: 900;
+    font-size: 18px;
+    box-shadow: 0 8px 20px rgba(99, 60, 220, .28)
+}
+
+.side nav {
+    display: grid;
+    gap: 6px
+}
+
+.side nav a,
+.logout button {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    color: #cbd5e1;
+    text-decoration: none;
+    padding: 12px 13px;
+    border-radius: 12px;
+    border: 1px solid transparent;
+    background: transparent;
+    text-align: left;
+    width: 100%;
+    font-size: 14px;
+    transition: .18s ease
+}
+
+.side nav a:hover,
+.side nav a.active,
+.logout button:hover {
+    background: rgba(124, 58, 237, .16);
+    border-color: rgba(167, 139, 250, .12);
+    color: #fff
+}
+
+.side nav a.active {
+    box-shadow: inset 3px 0 0 #8b5cf6
+}
+
+.logout {
+    margin-top: auto
+}
+
+.main {
+    margin-left: 250px;
+    padding: 34px 34px 50px;
+    max-width: 1600px;
+    width: calc(100% - 250px)
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 28px
+}
+
+.eyebrow {
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: #7c3aed;
+    font-weight: 850
+}
+
+.main h1 {
+    margin: 4px 0 0;
+    font-size: 32px;
+    line-height: 1.15;
+    letter-spacing: -.8px
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    gap: 11px
+}
+
+.profile small {
+    display: block;
+    color: #667085;
+    font-size: 12px
+}
+
+.avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(135deg, #f0ebff, #e0e7ff);
+    color: #633ce8;
+    font-weight: 850;
+    border: 1px solid #e5ddff
+}
+
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    background: linear-gradient(135deg, #fff, #f5f3ff);
+    border: 1px solid #e8e3f7;
+    border-radius: 22px;
+    padding: 27px 29px;
+    margin-bottom: 19px;
+    box-shadow: var(--shadow)
+}
+
+.hero span {
+    color: var(--primary2);
+    font-size: 13px;
+    font-weight: 750
+}
+
+.hero h2 {
+    font-size: 25px;
+    line-height: 1.25;
+    margin: 7px 0 8px
+}
+
+.hero p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 14px
+}
+
+.hero-mark {
+    width: 72px;
+    height: 72px;
+    flex: none;
+    border-radius: 20px;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(135deg, #ede9fe, #e0e7ff);
+    color: var(--primary);
+    font-size: 20px;
+    font-weight: 900
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+    margin-bottom: 18px
+}
+
+.stat {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 17px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(16, 24, 40, .04);
+    transition: .18s
+}
+
+.stat:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow)
+}
+
+.stat span {
+    display: block;
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: 650
+}
+
+.stat b {
+    display: block;
+    font-size: 28px;
+    margin: 8px 0 4px
+}
+
+.stat i {
+    font-style: normal;
+    color: #98a2b3;
+    font-size: 12px
+}
+
+.grid2 {
+    display: grid;
+    grid-template-columns: 1.2fr .8fr;
+    gap: 18px;
+    margin-bottom: 18px
+}
+
+.panel {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 17px;
+    padding: 21px;
+    box-shadow: 0 2px 10px rgba(16, 24, 40, .04);
+    margin-top: 18px
+}
+
+.grid2 .panel {
+    margin-top: 0
+}
+
+.panel-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 15px
+}
+
+.panel-head h3 {
+    margin: 0;
+    font-size: 17px
+}
+
+.panel-head a {
+    color: var(--primary);
+    font-size: 13px;
+    font-weight: 750;
+    text-decoration: none
+}
+
+.quick {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px
+}
+
+.quick a {
+    display: flex;
+    align-items: center;
+    min-height: 48px;
+    padding: 12px 14px;
+    border: 1px solid #e8e8ef;
+    border-radius: 12px;
+    color: #5145cd;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    background: #fcfbff;
+    transition: .18s
+}
+
+.quick a:hover {
+    border-color: #cfc3ff;
+    background: #f6f3ff;
+    transform: translateY(-1px)
+}
+
+.money {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 5px 0
+}
+
+.money b {
+    font-size: 29px
+}
+
+.money span {
+    font-size: 13px;
+    color: var(--muted)
+}
+
+.toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 18px
+}
+
+.toolbar p {
+    color: var(--muted);
+    margin: 0;
+    font-size: 14px
+}
+
+.primary {
+    background: linear-gradient(135deg, var(--primary), var(--primary2));
+    color: #fff;
+    border: 0;
+    padding: 11px 17px;
+    border-radius: 11px;
+    font-weight: 750;
+    box-shadow: 0 8px 18px rgba(109, 61, 245, .22);
+    white-space: nowrap
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px
+}
+
+.card,
+.group-card {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 17px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(16, 24, 40, .04)
+}
+
+.group-card {
+    cursor: pointer;
+    transition: .18s;
+    height: 100%
+}
+
+.group-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow);
+    border-color: #d8ccff
+}
+
+.group-icon {
+    width: 43px;
+    height: 43px;
+    border-radius: 13px;
+    background: #f1edff;
+    color: #7045ea;
+    display: grid;
+    place-items: center;
+    font-weight: 850;
+    margin-bottom: 13px
+}
+
+.group-card h3 {
+    margin: 0 0 5px;
+    font-size: 17px
+}
+
+.group-card p {
+    color: var(--muted);
+    margin: 0 0 15px;
+    font-size: 13px
+}
+
+.table-wrap {
+    overflow: auto;
+    border-radius: 12px
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse
+}
+
+th,
+td {
+    padding: 13px 12px;
+    text-align: left;
+    border-bottom: 1px solid #eef0f4;
+    white-space: nowrap
+}
+
+th {
+    font-size: 11px;
+    color: #667085;
+    text-transform: uppercase;
+    letter-spacing: .35px;
+    background: #fafbfc
+}
+
+td {
+    font-size: 14px
+}
+
+tbody tr:hover {
+    background: #fafbff
+}
+
+.empty {
+    text-align: center !important;
+    color: #98a2b3;
+    padding: 32px !important
+}
+
+.pill {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 999px;
+    background: #eef2ff;
+    color: #4338ca;
+    font-size: 12px;
+    font-weight: 750
+}
+
+.pill.present {
+    background: #dcfce7;
+    color: #166534
+}
+
+.pill.absent {
+    background: #fee2e2;
+    color: #991b1b
+}
+
+.pill.late {
+    background: #fef3c7;
+    color: #92400e
+}
+
+.kpi {
+    font-size: 28px;
+    font-weight: 850;
+    margin-top: 8px
+}
+
+.muted {
+    color: var(--muted)
+}
+
+.detail-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px
+}
+
+.student-row {
+    display: grid;
+    grid-template-columns: 1fr 150px 130px;
+    gap: 12px;
+    align-items: center;
+    padding: 11px 0;
+    border-bottom: 1px solid #eef0f4
+}
+
+.radio-row {
+    display: flex;
+    gap: 12px
+}
+
+.radio-row label {
+    display: flex;
+    align-items: center;
+    font-weight: 500
+}
+
+.radio-row input {
+    width: auto
+}
+
+.login-badge {
+    font-size: 12px;
+    color: #12a765;
+    font-weight: 750
+}
+
+dialog {
+    border: 0;
+    border-radius: 20px;
+    padding: 0;
+    width: min(520px, 92vw);
+    box-shadow: 0 25px 70px rgba(0, 0, 0, .22)
+}
+
+dialog::backdrop {
+    background: rgba(15, 23, 42, .55);
+    backdrop-filter: blur(3px)
+}
+
+dialog form {
+    padding: 25px;
+    display: grid;
+    gap: 14px
+}
+
+dialog h2 {
+    margin: 0 0 5px
+}
+
+label {
+    display: grid;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #344054
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 12px 13px;
+    border: 1px solid #d9dde7;
+    border-radius: 10px;
+    outline: none;
+    background: #fff;
+    color: #172033;
+    transition: .16s
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: #8b5cf6;
+    box-shadow: 0 0 0 4px rgba(124, 58, 237, .09)
+}
+
+.actions {
+    display: flex;
+    gap: 8px;
+    justify-content: flex-end
+}
+
+/* Beautiful login */
+.login-page {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 28px 18px;
+    background: radial-gradient(circle at 15% 15%, rgba(124, 58, 237, .30), transparent 30rem), radial-gradient(circle at 85% 85%, rgba(37, 99, 235, .25), transparent 30rem), linear-gradient(135deg, #0b1020, #171536 50%, #111b38);
+    position: relative;
+    overflow: hidden
+}
+
+.login-box {
+    position: relative;
+    z-index: 1;
+    width: min(430px, 100%);
+    background: rgba(255, 255, 255, .97);
+    border: 1px solid rgba(255, 255, 255, .7);
+    border-radius: 26px;
+    padding: 36px;
+    box-shadow: 0 30px 90px rgba(0, 0, 0, .30);
+    backdrop-filter: blur(16px)
+}
+
+.login-box::before {
+    content: "A";
+    width: 54px;
+    height: 54px;
+    display: grid;
+    place-items: center;
+    margin-bottom: 20px;
+    border-radius: 16px;
+    color: #fff;
+    font-size: 22px;
+    font-weight: 900;
+    background: linear-gradient(135deg, #7c3aed, #2563eb);
+    box-shadow: 0 10px 24px rgba(99, 60, 220, .25)
+}
+
+.login-box h1 {
+    margin: 0 0 8px;
+    font-size: 30px;
+    line-height: 1.15;
+    letter-spacing: -.7px
+}
+
+.login-box p {
+    color: #667085;
+    margin: 0 0 25px
+}
+
+.login-box form {
+    display: grid;
+    gap: 15px
+}
+
+.login-box input {
+    height: 49px;
+    border-radius: 12px
+}
+
+.login-box button {
+    margin-top: 4px;
+    min-height: 49px;
+    border-radius: 12px;
+    border: 0;
+    color: #fff;
+    font-weight: 800;
+    background: linear-gradient(135deg, #7c3aed, #4f46e5);
+    box-shadow: 0 10px 22px rgba(109, 61, 245, .23)
+}
+
+.notice {
+    padding: 11px 13px;
+    border-radius: 10px;
+    background: #fee2e2;
+    color: #991b1b;
+    font-size: 13px
+}
+
+/* If current login template does not use .login-page/.login-box */
+body:not(:has(.app)) {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 28px 18px;
+    background: radial-gradient(circle at 15% 15%, rgba(124, 58, 237, .30), transparent 30rem), radial-gradient(circle at 85% 85%, rgba(37, 99, 235, .25), transparent 30rem), linear-gradient(135deg, #0b1020, #171536 50%, #111b38)
+}
+
+body:not(:has(.app)) form {
+    width: min(430px, 100%);
+    background: rgba(255, 255, 255, .97);
+    border: 1px solid rgba(255, 255, 255, .7);
+    border-radius: 26px;
+    padding: 36px;
+    box-shadow: 0 30px 90px rgba(0, 0, 0, .30)
+}
+
+body:not(:has(.app)) form input {
+    display: block;
+    width: 100%;
+    min-height: 49px;
+    margin: 7px 0 15px
+}
+
+body:not(:has(.app)) form button {
+    min-height: 49px;
+    width: 100%;
+    border: 0;
+    border-radius: 12px;
+    color: #fff;
+    font-weight: 800;
+    background: linear-gradient(135deg, #7c3aed, #4f46e5);
+    box-shadow: 0 10px 22px rgba(109, 61, 245, .23)
+}
+
+@media(max-width:1100px) {
+    .stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr))
+    }
+
+    .cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr))
+    }
+
+    .grid2 {
+        grid-template-columns: 1fr
+    }
+}
+
+@media(max-width:900px) {
+    .side {
+        width: 76px;
+        padding: 16px 10px
+    }
+
+    .brand {
+        justify-content: center;
+        margin: 0 0 28px
+    }
+
+    .brand div:not(.logo),
+    .side nav span,
+    .logout button {
+        font-size: 0
+    }
+
+    .side nav a,
+    .logout button {
+        justify-content: center;
+        text-align: center;
+        padding: 11px 8px
+    }
+
+    .main {
+        margin-left: 76px;
+        width: calc(100% - 76px);
+        padding: 22px
+    }
+
+    .hero {
+        padding: 22px
+    }
+}
+
+@media(max-width:600px) {
+    header {
+        align-items: flex-start
+    }
+
+    .profile div:not(.avatar) {
+        display: none
+    }
+
+    .stats,
+    .cards {
+        grid-template-columns: 1fr
+    }
+
+    .toolbar {
+        align-items: flex-start;
+        flex-direction: column
+    }
+
+    .toolbar .primary {
+        width: 100%
+    }
+
+    .hero h2 {
+        font-size: 21px
+    }
+
+    .main {
+        padding: 15px
+    }
+
+    .panel {
+        padding: 16px
+    }
+
+    .student-row {
+        grid-template-columns: 1fr
+    }
+
+    .login-box,
+    body:not(:has(.app)) form {
+        padding: 27px 21px;
+        border-radius: 21px
+    }
+
+    .login-box h1 {
+        font-size: 26px
+    }
+}
